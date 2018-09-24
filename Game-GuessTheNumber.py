@@ -6,6 +6,7 @@ number = random.randint(1,10)
 name = raw_input("Hello! What is your name? ")
 
 print(name + ", I am thinking of a whole number between 1 and 10. Can you guess what it is?")
+raw_input("Are you ready?")
 
 while numberofGuesses < 8:
   guess = raw_input("Take a guess ")
