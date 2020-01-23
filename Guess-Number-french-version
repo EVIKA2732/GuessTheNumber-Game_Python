@@ -1,0 +1,37 @@
+#!/usr/bin/python
+# -*- coding: ascii -*-
+import random
+
+class GuessNumber:
+    def startGame(self):
+	print("Devine un nombre !")
+	t=0
+	for t in xrange(6):
+		num = raw_input("\nessaie ("+str(t+1)+")] ")
+		try:
+			inp = int(num)
+		except ValueError:
+			inp=0
+
+		if(inp == random.randint(1,10)):
+			print "\nWinner! Vous avez decouvert le nombre en "+str(t+1)+" fois! Bien jouer !"
+			return self.quitGame()
+		else:
+			print random.choice(['nan!', 'Quoi?', 'essaie encore stp', 'Non', 'ha ha...', 'mauvais' 'Euh serieux la' 'lol'])
+	print 'Vous avez depasser le maximum d essai :('	
+	return self.quitGame()
+	
+    def quitGame(self):
+	if(str(raw_input("\nEssayer encore? (Y/n)")).lower() in ('y','')):
+	# Game is Interesting! :)
+		return True
+	else:
+	# Game is NOT Interesting! :(
+		print "Merci d avoir jouer a mon jeu, salut ! :) developpeur mika ;) lol"
+		return False
+
+if __name__ == '__main__':
+	G = GuessNumber()
+	GameIsInteresting = True
+	while GameIsInteresting:
+		GameIsInteresting = G.startGame()
